@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="fBg-BD-2PG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tip Calculator-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="tips" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,6 +80,13 @@
                             <outletCollection property="gestureRecognizers" destination="Z6w-ev-9zN" appends="YES" id="Rjo-iH-vLN"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="E70-CX-nA5">
+                        <barButtonItem key="rightBarButtonItem" title="Setting" id="jnS-3q-trq">
+                            <connections>
+                                <segue destination="OQl-yq-IgD" kind="push" id="IDN-HQ-CnT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billField" destination="wdu-5F-8KE" id="CHh-DL-RTo"/>
                         <outlet property="tipControl" destination="77x-7X-Kfl" id="9Xp-Sv-DdS"/>
@@ -93,6 +100,86 @@
                         <action selector="onTap:" destination="vXZ-lx-hvc" id="dhZ-Hh-R8x"/>
                     </connections>
                 </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="606" y="128"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="PfE-Rc-jgc">
+            <objects>
+                <viewController id="OQl-yq-IgD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PD0-Fs-BkV" customClass="SettingController">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="pGU-bH-7gS">
+                                <rect key="frame" x="255" y="86" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Tip Percentage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kac-ZY-EOR">
+                                <rect key="frame" x="16" y="135" width="175" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting Lock" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JkH-QS-9Pf">
+                                <rect key="frame" x="16" y="96" width="97" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="9z3-PZ-ctp">
+                                <rect key="frame" x="34" y="164" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="LbG-Eh-bpV">
+                                <rect key="frame" x="119" y="164" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="3a1-cj-tdc">
+                                <rect key="frame" x="205" y="164" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outlet property="left" destination="9z3-PZ-ctp" id="Hef-d2-1T5"/>
+                            <outlet property="lock" destination="pGU-bH-7gS" id="LAg-WO-Ijl"/>
+                            <outlet property="middle" destination="LbG-Eh-bpV" id="bkC-Ji-4KW"/>
+                            <outlet property="right" destination="3a1-cj-tdc" id="9Ix-eH-Gdh"/>
+                            <outletCollection property="gestureRecognizers" destination="Qko-4q-Rpy" appends="YES" id="ngL-bm-iLV"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Setting" id="FFq-Jj-Trl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AKA-9z-vgE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Qko-4q-Rpy"/>
+            </objects>
+            <point key="canvasLocation" x="954" y="128"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mzX-FO-1bb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fBg-BD-2PG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Cg-i0-715">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="gM7-Pl-Ucj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="87h-hk-tWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="74" y="128"/>
         </scene>
