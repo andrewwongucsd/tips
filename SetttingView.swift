@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class SettingViewController: UIViewController{
+    @IBOutlet weak var colorLockLabel: UILabel!
     @IBOutlet weak var redBar: UISlider!
     @IBOutlet weak var greenBar: UISlider!
     @IBOutlet weak var blueBar: UISlider!
@@ -41,7 +42,8 @@ class SettingViewController: UIViewController{
             redBar.value = Float(red)
             greenBar.value = Float(green)
             blueBar.value = Float(blue)
-
+            lock.on = isLock
+            setLock(false)
         }else{
             redBar.value = Float(arc4random_uniform(255))
             greenBar.value = Float(arc4random_uniform(255))
@@ -55,9 +57,6 @@ class SettingViewController: UIViewController{
         view.endEditing(true)
     }
     func setLock(input: Bool){
-        self.left.enabled = input
-        self.right.enabled = input
-        self.middle.enabled = input
         self.redBar.enabled = input
         self.greenBar.enabled = input
         self.blueBar.enabled = input
@@ -65,13 +64,8 @@ class SettingViewController: UIViewController{
     
     @IBAction func lock(sender: UISwitch) {
         var defaults = NSUserDefaults.standardUserDefaults()
-        if(sender.on){
-            defaults.setBool(true , forKey: "locker")
-            setLock(false)
-        }else{
-            defaults.setBool(false , forKey: "locker")
-            setLock(true)
-        }
+        defaults.setBool(sender.on , forKey: "locker")
+        setLock(!sender.on)
         defaults.synchronize()
     }
   
@@ -93,8 +87,6 @@ class SettingViewController: UIViewController{
     }
     func colorUpdate(){
         var defaults = NSUserDefaults.standardUserDefaults()
-        var isLock = defaults.boolForKey("locker")
-
             let red = CGFloat(redBar.value)
             let blue = CGFloat(blueBar.value)
             let green = CGFloat(greenBar.value)
@@ -119,8 +111,17 @@ class SettingViewController: UIViewController{
                 greenLabel.textColor = white
                 blueLabel.textColor = white
                 closingLabel.textColor = white
+                colorLockLabel.textColor = white
+            }else{
+                defaultTipLabel.textColor = UIColor.blackColor()
+                colorbgLabel.textColor = UIColor.blackColor()
+                redLabel.textColor = UIColor.blackColor()
+                greenLabel.textColor = UIColor.blackColor()
+                blueLabel.textColor = UIColor.blackColor()
+                closingLabel.textColor = UIColor.blackColor()
+                colorLockLabel.textColor = UIColor.blackColor()
+        
             }
-
         
     }
     

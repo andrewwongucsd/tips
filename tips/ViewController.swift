@@ -10,6 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var perPersonStaticLabel: UILabel!
+    @IBOutlet weak var totalStaticLabel: UILabel!
+    @IBOutlet weak var tipStaticLabel: UILabel!
+    @IBOutlet weak var billAmountStaticLabel: UILabel!
+    @IBOutlet weak var barStaticLabel: UIView!
     @IBOutlet weak var personLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var perPersonLabel: UILabel!
@@ -17,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tipLabel.text = "$0.00"
@@ -32,8 +38,8 @@ class ViewController: UIViewController {
             defaults.setInteger(15, forKey: "left")
             defaults.setInteger(18, forKey: "middle")
             defaults.setInteger(20, forKey: "right")
-            defaults.synchronize()
             defaults.setInteger(1, forKey: "used")
+            defaults.synchronize()
         }else{
             
             calculate()
@@ -61,8 +67,27 @@ class ViewController: UIViewController {
         var color = UIColor(red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: CGFloat(1.0))
         self.view.backgroundColor = color
         if(red < 63 || green < 63){
-            let white = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-
+            let white = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+            barStaticLabel.backgroundColor = white
+            billAmountStaticLabel.textColor = white
+            tipStaticLabel.textColor = white
+            totalStaticLabel.textColor = white
+            tipLabel.textColor = white
+            totalLabel.textColor = white
+            personLabel.textColor = white
+            perPersonLabel.textColor = white
+            perPersonStaticLabel.textColor = white
+            
+        }else{
+            barStaticLabel.backgroundColor = UIColor.blackColor()
+            billAmountStaticLabel.textColor = UIColor.blackColor()
+            tipStaticLabel.textColor = UIColor.blackColor()
+            totalStaticLabel.textColor = UIColor.blackColor()
+            tipLabel.textColor = UIColor.blackColor()
+            totalLabel.textColor = UIColor.blackColor()
+            personLabel.textColor = UIColor.blackColor()
+            perPersonLabel.textColor = UIColor.blackColor()
+            perPersonStaticLabel.textColor = UIColor.blackColor()
         }
 
 
@@ -81,9 +106,6 @@ class ViewController: UIViewController {
             var tip = billAmount * tipConverted * 0.001
             var total = billAmount + tip
             var perPerson = total/Double(numberOfPerson)
-            tipLabel.text = "\(tip)"
-            totalLabel.text = "\(total)"
-            perPersonLabel.text = "\(perPerson)"
             
             var formatter = NSNumberFormatter()
             formatter.numberStyle = .CurrencyStyle

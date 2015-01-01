@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tip Calculator-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="tips" customModuleProvider="target" sceneMemberID="viewController">
@@ -109,7 +109,7 @@
                             <outletCollection property="gestureRecognizers" destination="Z6w-ev-9zN" appends="YES" id="Rjo-iH-vLN"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="SXJ-Vd-Hog">
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="SXJ-Vd-Hog">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="Xud-wm-Ti1">
                             <connections>
                                 <segue destination="MTd-Bo-8c9" kind="push" id="fCA-ho-FkR"/>
@@ -117,19 +117,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="barLabel" destination="PKn-6n-0kW" id="Hap-sJ-9OE"/>
-                        <outlet property="barStaticLabel" destination="PKn-6n-0kW" id="NH9-fd-NiO"/>
-                        <outlet property="billAmountLabel" destination="V03-CE-SMh" id="Pf2-pT-h2q"/>
-                        <outlet property="billAmountStaticLabel" destination="V03-CE-SMh" id="Ovw-J3-RD7"/>
+                        <outlet property="barStaticLabel" destination="PKn-6n-0kW" id="xG3-82-CFX"/>
+                        <outlet property="billAmountStaticLabel" destination="V03-CE-SMh" id="dEU-ip-lbq"/>
                         <outlet property="billField" destination="wdu-5F-8KE" id="CHh-DL-RTo"/>
                         <outlet property="perPersonLabel" destination="qk7-XQ-DRI" id="40G-9X-VQH"/>
+                        <outlet property="perPersonStaticLabel" destination="G4c-iN-KTE" id="mYl-De-GYV"/>
                         <outlet property="personLabel" destination="Swd-8Y-4nG" id="WXX-1E-boz"/>
                         <outlet property="slider" destination="IBu-Sa-740" id="BNv-Zk-E6O"/>
                         <outlet property="tipControl" destination="77x-7X-Kfl" id="9Xp-Sv-DdS"/>
-                        <outlet property="tipLabel" destination="kh9-bI-dsS" id="Qdn-UM-lco"/>
-                        <outlet property="tipStaticLabel" destination="jfS-CI-xjQ" id="u2o-Ya-Dkj"/>
-                        <outlet property="totalLabel" destination="24r-aD-ZEA" id="PvQ-sS-Npx"/>
-                        <outlet property="totalStaticLabel" destination="24r-aD-ZEA" id="YeB-PV-FGi"/>
+                        <outlet property="tipLabel" destination="GMC-fr-rNU" id="kVw-47-SOP"/>
+                        <outlet property="tipStaticLabel" destination="jfS-CI-xjQ" id="k3m-f6-XWI"/>
+                        <outlet property="totalLabel" destination="Zmq-UA-15r" id="izx-50-0Ap"/>
+                        <outlet property="totalStaticLabel" destination="24r-aD-ZEA" id="ofS-sj-WbJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -141,7 +140,7 @@
             </objects>
             <point key="canvasLocation" x="606" y="128"/>
         </scene>
-        <!--Setting View Controller-->
+        <!--Setting-->
         <scene sceneID="pze-VT-kr1">
             <objects>
                 <viewController id="MTd-Bo-8c9" customClass="SettingViewController" customModule="tips" customModuleProvider="target" sceneMemberID="viewController">
@@ -257,11 +256,11 @@
                                 <rect key="frame" x="236" y="80" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="lock:" destination="MTd-Bo-8c9" eventType="valueChanged" id="eaf-ey-TfG"/>
+                                    <action selector="lock:" destination="MTd-Bo-8c9" eventType="valueChanged" id="jLm-t9-lnW"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lock" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lC0-Q5-73z">
-                                <rect key="frame" x="190" y="85" width="38" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color Lock" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lC0-Q5-73z">
+                                <rect key="frame" x="34" y="85" width="84" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -271,11 +270,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
-                    <navigationItem key="navigationItem" id="JAo-d6-YZF"/>
+                    <navigationItem key="navigationItem" title="Setting" id="JAo-d6-YZF"/>
                     <connections>
                         <outlet property="blueBar" destination="hOE-26-Ef6" id="AQa-mx-c3H"/>
                         <outlet property="blueLabel" destination="v7b-z3-8PD" id="FKr-ZQ-4PN"/>
                         <outlet property="closingLabel" destination="XvH-zc-yQb" id="bc7-62-ve9"/>
+                        <outlet property="colorLockLabel" destination="lC0-Q5-73z" id="SoM-AC-yAh"/>
                         <outlet property="colorbgLabel" destination="0Qp-Ww-2Ao" id="qJL-xj-GFi"/>
                         <outlet property="defaultTipLabel" destination="pdO-ff-utJ" id="ZxM-0y-220"/>
                         <outlet property="greenBar" destination="B87-GD-ReR" id="AAw-kh-ihN"/>
